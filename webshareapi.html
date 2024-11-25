@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+   <head>
+    <title>Web Share Api </title>
+    <link rel="stylesheet" href="style.css">
+   </head>
+     <body>
+      
+          <input type="file" id="media">
+         <button onclick="share()">Share</button>
+
+         <script>
+              let imgElm=document.querySelector("#media")
+                 
+            async function share(){ 
+                  let file=imgElm.files                         
+             /*let img=await fetch("https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+            let file=await img.blob()
+               file=new File([file],"fruits.jpg",{type:"image/jpeg"}) internet file  */                  //binary convertion use blob function text inform convertion la use blob
+
+           if(navigator.share){
+               // console.log("sdf")
+               navigator.share({                 //share method lo objects pass or keys paier
+                  title:"Demo",              //simple title
+                  text:"Check this channel",       //simple a Description
+                  url:"https://www.guvi.in/blog/project-ideas-for-frontend-development/",
+                  files:file
+
+               })
+            }
+         }
+         </script>
+         <!-- https://www.guvi.in/blog/project-ideas-for-frontend-development/ -->
+        <!-- <script src="index.js"></script> -->
+     </body>
+</html>
